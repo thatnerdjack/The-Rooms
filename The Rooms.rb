@@ -27,6 +27,7 @@ require "Room Methods"
 @room3hole = false
 @latchbroken = false
 @questionhole = false
+@pitcover = false
 
 
 @room = 0
@@ -36,11 +37,11 @@ while @running
 		firstrun
 	elsif @room == 1
 		room1
-	elsif @room == "cheaty"
-		cheaty
-	elsif @room == "question"
-		questionroom
+	elsif @room == 2
+		room2
 	elsif @room == 3
 		room3
+	elsif @room == 4
+		room4
 	end
 end

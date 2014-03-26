@@ -1,4 +1,4 @@
-require "High Score API" #FOR TESTING
+#require "High Score API" #FOR TESTING
 
 def firstrun
 	@room = 0
@@ -175,7 +175,7 @@ def room3
 		elsif @command == "use"
 			puts "What would you like to use"
 			@usecommand = gets.chomp.downcase
-			if @usecommand == "shovel"
+			if @usecommand == "shovel" and @shovel == "a shovel"
 				@room3hole = true
 				puts "You start to dig through the wall and uncover a tunnel. You try to listen to what is on the otherside and hear machines humming and beeping. You take a step back to contemplate your options."
 			else
@@ -414,7 +414,55 @@ def question
 		elsif @command == "r"
 			puts "You cannot go right."
 		elsif @command == "take"
-			if @questionhole == true #STOPED HERE!!!!!!!
+			if @questionhole == true
+				puts "You have taken a bridge."
+				@bridge = "a bridge"
+			else
+				puts "There is nothing to take."
+			end
+		elsif @command == "use"
+			puts "What would you like to use?"
+			@usecommand = gets.chomp.downcase
+			if @usecommand == "shovel" and @shovel == "a shovel"
+				puts "You take your shovel and start to dig up the soft ground underneath you. You dont think there is anything under there but you just want to be safe. But to your amazement you find a bridge underneath all of the dirt. Something that might be of use later on."
+				@bridge = "a bridge"
+			else
+				puts "There is nothing to do."
+			end
+		elsif @command == "items"
+			puts "You have #{@shovel}, #{@key}, #{@ladder}, #{@bridge}."
+		elsif @command == "look closer"
+			puts "There is nothing to look closer at."
+		elsif @command == "look"
+			puts "You could either continue forward and turn the corrner, or you could turn back. You also feel that the soft ground may lead to a trap."
+		elsif @command == "help"
+			puts "WIP" #WIP!!!
+		else
+			puts "That's not a valid responce you idiot. If you need to, type 'help' for commands."
+		end #command if
+	end #asking while
+end #method
+
+def pit
+	if @pitreturn == false
+		puts "You walk into a very dark and narrow hallway. As you stumble around the room you fall into a pit! You feel as you did at the beginning of this journey."
+		@room = 1
+	else
+		puts "As you have been here before you take extra care not to fall into that pit. You can make out a door on the far side of the room but between you and the door is a very large pit. You would need a small bridge to cross it."
+	end
+	@asking = true
+	while @asking
+		@command = gets.chomp.downcase
+		if @command == "f"
+			if @pitcover #STOPED HERE!!!!!!!!!
+		elsif @command == "l"
+			puts "You cannot go left."
+		elsif @command == "b"
+			puts "You cannot go backwards."
+		elsif @command == "r"
+			puts "You cannot go right."
+		elsif @command == "take"
+			puts "There is nothing to take."
 		elsif @command == "use"
 			puts "There is nothing for you to do."
 		elsif @command == "items"
