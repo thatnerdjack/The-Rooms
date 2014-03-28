@@ -454,31 +454,121 @@ def pit
 	while @asking
 		@command = gets.chomp.downcase
 		if @command == "f"
-			if @pitcover #STOPED HERE!!!!!!!!!
+			if @pitcover == true
+				puts "You walk carefully across the bridge you laid down and make it to the door on the far side of the room."
+				@room = 4
+			elsif @pitcover == false and @intel == false
+				puts "Being the idiot you are, you decide to walk forward right into the pit again."
+				@room = 1
+			else
+				puts "You cant go that way. You would fall into a pit."
+			end
+		end
 		elsif @command == "l"
 			puts "You cannot go left."
 		elsif @command == "b"
-			puts "You cannot go backwards."
+			@room = 3
 		elsif @command == "r"
 			puts "You cannot go right."
 		elsif @command == "take"
 			puts "There is nothing to take."
 		elsif @command == "use"
-			puts "There is nothing for you to do."
+			puts "What would you like to do?"
+			@usecommand = gets.chomp.downcase
+			if @usecommand == "bridge" and @bridge == "a bridge"
+				puts "You take the bridge off of your back and place it over the pit. Hopefully it will withstand your weight."
+				@pitcover = true
+				@bridge = ""
+			else
+				puts "There is nothing for you to do."
+			end
 		elsif @command == "items"
 			puts "You have #{@shovel}, #{@key}, #{@ladder}, #{@bridge}."
 		elsif @command == "look closer"
-			if @intel == true
-				#Look Closer Description
-			else
-				puts "There is nothing to look closer at."
-			end
+			puts "There is nothing to look closer at."
 		elsif @command == "look"
-			#Description
+			puts "As you have been here before you take extra care not to fall into that pit. You can make out a door on the far side of the room but between you and the door is a very large pit. You would need a small bridge to cross it."
 		elsif @command == "help"
 			puts "WIP" #WIP!!!
 		else
 			puts "That's not a valid responce you idiot. If you need to, type 'help' for commands."
 		end #command if
 	end #asking while
+end #method
+
+def cheaty
+	if @name == "Jack" or @name == "jack" or @name == "Jack D."
+		puts "Hello Jack. I'm giving you intel and all the items now..."
+		@shovel = "a shovel"
+		@key = "a key"
+		@ladder = "a ladder"
+		@bridge = "a bridge"
+		@room1return = true
+		@room2return = true
+		@room3return = true
+		@room4return = true
+		@room5return = true
+		@room6return = true
+		@room7return = true
+		@questionreturn = true
+		@pitreturn = true
+		@pitcover = true
+		@intel = true
+		sleep 1
+		puts "Now which room would you like to go to?"
+		@cheat = gets.chomp.downcase
+		if @cheat == "1"
+			@room = 1
+		elsif @cheat == "2"
+			@room = 2
+		elsif @cheat == "3"
+			@room = 3
+		elsif @cheat == "4"
+			@room = 4
+		elsif @cheat == "5"
+			@room = 5
+		elsif @cheat == "6"
+			@room = 6
+		elsif @cheat == "7"
+			@room = 7
+		elsif @cheat == "8"
+			@room = 8
+		elsif @cheat == "question"
+			@room = "question"
+		elsif @cheat == "pit"
+			@room = "pit"
+		end #Jack cheat if
+	else
+		puts "Wow... you know how to cheat... impresive................................................"
+		sleep 1
+		@running = false
+	end #name check if
+end #method
+
+def credits
+	puts "The Rooms"
+	sleep 1
+	puts ""
+	sleep 1
+	puts "---------"
+	sleep 1
+	puts ""
+	sleep 1
+	puts "Created by Jack Doherty"
+	sleep 1
+	puts ""
+	sleep 1
+	puts "---------"
+	sleep 1
+	puts ""
+	sleep 1
+	puts "Inspired by the game Dunnet"
+	sleep 1
+	puts ""
+	sleep 1
+	puts "---------"
+	sleep 1
+	puts ""
+	sleep 1
+	puts "Made for Intro to Programing"
 end #method

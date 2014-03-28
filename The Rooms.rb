@@ -28,7 +28,7 @@ require "Room Methods"
 @latchbroken = false
 @questionhole = false
 @pitcover = false
-
+@intel = false
 
 @room = 0
 @running = true
@@ -43,5 +43,21 @@ while @running
 		room3
 	elsif @room == 4
 		room4
+	elsif @room == 5
+		room5
+	elsif @room == 6
+		room6
+	elsif @room == 7
+		room7
+	elsif @room == 8
+		room8
+	elsif @room == "question"
+		question
+	elsif @room == "pit"
+		pit
+	elsif @room == "cheaty"
+		cheaty
+	elsif @room == "credits"
+		credits
 	end
 end
